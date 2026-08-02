@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://00uobnipej3h"]
+
+[ext_resource type="Texture2D" uid="uid://bgvwmalkcf5ih" path="res://Metroidvania Course/Scenes/General/door/door_and_switch.png" id="1_6utgg"]
+[ext_resource type="Script" uid="uid://b7btjpep8e8lc" path="res://Metroidvania Course/Scenes/General/door/Switch.gd" id="1_x14mx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6utgg"]
+size = Vector2(31.407408, 24)
+
+[node name="Switch" type="Node2D" unique_id=1253740940]
+z_index = 1
+script = ExtResource("1_x14mx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1439004029]
+position = Vector2(3, -16)
+scale = Vector2(0.84375, 1)
+texture = ExtResource("1_6utgg")
+vframes = 3
+frame = 2
+region_rect = Rect2(0, 32, 32, 21)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=232704778]
+position = Vector2(3, -16)
+scale = Vector2(0.84375, 1)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=629488252]
+position = Vector2(0.8888881, 4)
+shape = SubResource("RectangleShape2D_6utgg")

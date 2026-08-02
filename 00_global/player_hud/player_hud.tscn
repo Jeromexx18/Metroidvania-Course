@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cp2pbfa2dxlop"]
+
+[ext_resource type="Script" uid="uid://cpnn48fo8r3qr" path="res://Metroidvania Course/00_global/player_hud/player_hud.gd" id="1_m6ic2"]
+[ext_resource type="Texture2D" uid="uid://702dy0ope02k" path="res://Metroidvania Course/00_global/player_hud/health_bar_frame.png" id="2_k8xne"]
+[ext_resource type="Script" uid="uid://d1kslvvyxullv" path="res://Metroidvania Course/00_global/player_hud/button.gd" id="3_k8xne"]
+[ext_resource type="Resource" uid="uid://b7ufq3mwxv2r3" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings/hit_wood_large.tres" id="4_mtt1k"]
+
+[sub_resource type="Gradient" id="Gradient_mtt1k"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ius0d"]
+gradient = SubResource("Gradient_mtt1k")
+
+[sub_resource type="Gradient" id="Gradient_8gqma"]
+offsets = PackedFloat32Array(0.04255319, 0.9893617)
+colors = PackedColorArray(0.9959224, 0.2342192, 0.3922695, 1, 1, 0.4627451, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kkuap"]
+gradient = SubResource("Gradient_8gqma")
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=100155742]
+layer = 2
+script = ExtResource("1_m6ic2")
+
+[node name="Control" type="Control" parent="." unique_id=900142891]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HPMarginContainer" type="MarginContainer" parent="Control" unique_id=1220089207]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 36.0
+offset_right = 152.0
+offset_bottom = 78.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer" unique_id=1217834321]
+layout_mode = 2
+texture = ExtResource("2_k8xne")
+patch_margin_left = 26
+patch_margin_right = 7
+axis_stretch_horizontal = 1
+
+[node name="HPBar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect" unique_id=1970124933]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = -3.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_ius0d")
+texture_progress = SubResource("GradientTexture2D_kkuap")
+
+[node name="Button" type="Button" parent="Control" unique_id=1931532880]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 627.0
+offset_top = 36.0
+offset_right = 787.0
+offset_bottom = 102.0
+text = "particle settings"
+script = ExtResource("3_k8xne")
+particle_settings = ExtResource("4_mtt1k")
+
+[node name="GameOver" type="Control" parent="." unique_id=1544018684]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=1082983296]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8627451)
+
+[node name="Label" type="Label" parent="GameOver" unique_id=814965655]
+modulate = Color(0.7194535, 2.5509298e-06, 5.7756904e-07, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -28.0
+offset_right = 107.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver" unique_id=1298806603]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = 51.0
+offset_right = 227.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LoadButton" type="Button" parent="GameOver/HBoxContainer" unique_id=1050388028]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "LOAD LAST SAVE"
+
+[node name="QuitButton" type="Button" parent="GameOver/HBoxContainer" unique_id=624306339]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "QUIT TO TITLE"

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dd55xtu05voik"]
+
+[ext_resource type="Texture2D" uid="uid://buqedowodkydt" path="res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/ch_02_world_building_foundations/ch_02_world_building_foundations/forgotten_forest_example_tileset.png" id="1_ioy0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5n17"]
+size = Vector2(80, 16)
+
+[node name="Slam_breakable" type="StaticBody2D" unique_id=220582698]
+collision_layer = 129
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1609022793]
+position = Vector2(-1, 1)
+texture = ExtResource("1_ioy0b")
+region_enabled = true
+region_rect = Rect2(537, 352, 80, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973564268]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_e5n17")

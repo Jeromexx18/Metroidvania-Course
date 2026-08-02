@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bopmxbeiy1qvc"]
+
+[ext_resource type="Texture2D" uid="uid://cqmedi2vwk601" path="res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/METROIDVAINIA/ch_02_world_building_foundations/ch_02_world_building_foundations/forgotten_forest_example_tileset.png" id="1_rwegl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw3yt"]
+atlas = ExtResource("1_rwegl")
+region = Rect2(512, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5rk"]
+atlas = ExtResource("1_rwegl")
+region = Rect2(544, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnjoi"]
+atlas = ExtResource("1_rwegl")
+region = Rect2(576, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0qlq"]
+atlas = ExtResource("1_rwegl")
+region = Rect2(608, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv0ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw3yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir5rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnjoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0qlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnjoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0qlq")
+}],
+"loop": true,
+"name": &"defaultplant props",
+"speed": 5.0
+}]
+
+[node name="plants" type="AnimatedSprite2D" unique_id=626281926]
+sprite_frames = SubResource("SpriteFrames_nv0ag")
+animation = &"defaultplant props"
+autoplay = "defaultplant props"
+frame_progress = 0.013570741
+offset = Vector2(0, -16)

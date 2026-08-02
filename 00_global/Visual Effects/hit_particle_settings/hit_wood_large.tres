@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HitParticleSettings" format=3 uid="uid://b7ufq3mwxv2r3"]
+
+[ext_resource type="Script" uid="uid://b8puhmb846r64" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings.gd" id="1_b8pee"]
+[ext_resource type="Texture2D" uid="uid://b2fmldb6ik11b" path="res://Metroidvania Course/Scenes/player/sprites/props_destructible.png" id="2_o3juj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxk3e"]
+atlas = ExtResource("2_o3juj")
+region = Rect2(112, 7, 6, 9)
+
+[resource]
+script = ExtResource("1_b8pee")
+texture = SubResource("AtlasTexture_uxk3e")
+metadata/_custom_type_script = "uid://b8puhmb846r64"

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://0r6pdglm0s8a"]
+
+[ext_resource type="Script" uid="uid://ks3vpjonyvm6" path="res://Metroidvania Course/Scenes/General/player_spawn/PlayerSpawn.gd" id="1_ofc2d"]
+[ext_resource type="Texture2D" uid="uid://5bkysdrs6w4x" path="res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/ch_01_player_foundations/ch_01_player_foundations/hero.png" id="1_w56dp"]
+
+[node name="PlayerSpawn" type="Node2D" unique_id=2017253389]
+script = ExtResource("1_ofc2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1346015283]
+modulate = Color(0.14882737, 1.023443, 0.24467567, 1)
+z_index = 100
+position = Vector2(11, -40)
+texture = ExtResource("1_w56dp")
+hframes = 16
+vframes = 4

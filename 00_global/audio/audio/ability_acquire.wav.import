@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjd2oc4bmrg3r"
+path="res://.godot/imported/ability_acquire.wav-08f396c6633860e13ae7e5b6f66e22c6.sample"
+
+[deps]
+
+source_file="res://Metroidvania Course/00_global/audio/audio/ability_acquire.wav"
+dest_files=["res://.godot/imported/ability_acquire.wav-08f396c6633860e13ae7e5b6f66e22c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

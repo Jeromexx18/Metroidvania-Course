@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dk2x4n4gdtv0p"]
+
+[ext_resource type="Texture2D" uid="uid://mn6fsir623us" path="res://Metroidvania Course/00_global/Visual Effects/particle textures/props_destructible.png" id="1_dqp6x"]
+[ext_resource type="Script" uid="uid://c725h8hsb4gj6" path="res://Metroidvania Course/Scenes/levels/props/test_dummy.gd" id="1_exv0l"]
+[ext_resource type="Script" uid="uid://hvr30iaccx8y" path="res://Metroidvania Course/Scenes/General/scripts/damage_area.gd" id="2_exv0l"]
+[ext_resource type="Script" uid="uid://b8puhmb846r64" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings.gd" id="2_q0wag"]
+[ext_resource type="Resource" uid="uid://dny0jusem76gw" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings/hit_wood_small.tres" id="4_58gj5"]
+[ext_resource type="Script" uid="uid://dkmm7vxsnbndd" path="res://Metroidvania Course/Scenes/General/scripts/hazard_area.gd" id="5_2j567"]
+[ext_resource type="AudioStream" uid="uid://b3xlpqgga1k76" path="res://Metroidvania Course/00_global/audio/audio/hit.wav" id="8_gu6mw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksp6u"]
+atlas = ExtResource("1_dqp6x")
+region = Rect2(33, 17, 14, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58gj5"]
+size = Vector2(13, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0wag"]
+atlas = ExtResource("1_dqp6x")
+region = Rect2(15, 52, 17, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j567"]
+size = Vector2(12.5, 26.25)
+
+[node name="SpikeDummy" type="Node2D" unique_id=239061324]
+script = ExtResource("1_exv0l")
+particles = Array[ExtResource("2_q0wag")]([ExtResource("4_58gj5"), ExtResource("4_58gj5")])
+base_wobble_angle = 6.0
+
+[node name="bodysprite" type="Sprite2D" parent="." unique_id=924531757]
+texture = SubResource("AtlasTexture_ksp6u")
+
+[node name="HazardArea" type="Area2D" parent="bodysprite" unique_id=66231205]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_2j567")
+metadata/_custom_type_script = "uid://dkmm7vxsnbndd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodysprite/HazardArea" unique_id=672290958]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_58gj5")
+debug_color = Color(0.96862745, 0, 0, 0.41960785)
+
+[node name="base" type="Sprite2D" parent="." unique_id=1613094838]
+position = Vector2(0, 20)
+texture = SubResource("AtlasTexture_q0wag")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=618451903]
+collision_layer = 96
+collision_mask = 0
+script = ExtResource("2_exv0l")
+audio = ExtResource("8_gu6mw")
+metadata/_custom_type_script = "uid://hvr30iaccx8y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1172999619]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_2j567")
+debug_color = Color(0, 0.6, 0.69803923, 0)

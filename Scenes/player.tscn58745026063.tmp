@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dtskcmvl3b76g"]
+
+[ext_resource type="Script" uid="uid://oby7kg0ymbi" path="res://Scenes/player/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dc16s3frd8vvl" path="res://kenney_new-platformer-pack-1.1/Sprites/Characters/Default/character_green_idle.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://cr3yl8qvsvh23" path="res://Scenes/states/idle.gd" id="3_vgqql"]
+[ext_resource type="Script" uid="uid://bcq40i0tcves8" path="res://Scenes/states/Run.gd" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://ip0fgu1qulig" path="res://Scenes/states/jump.gd" id="4_x3wgy"]
+[ext_resource type="Script" uid="uid://bhpxenqwxldre" path="res://Scenes/states/fall.gd" id="5_x3wgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
+size = Vector2(42, 73)
+
+[sub_resource type="FontFile" id="FontFile_vgqql"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+
+[node name="Player" type="CharacterBody2D" unique_id=2022283424]
+script = ExtResource("1_cvnsp")
+
+[node name="States" type="Node" parent="." unique_id=1469614413]
+
+[node name="Idle" type="Node" parent="States" unique_id=1545190786]
+unique_name_in_owner = true
+script = ExtResource("3_vgqql")
+
+[node name="Run" type="Node" parent="States" unique_id=1678644684]
+unique_name_in_owner = true
+script = ExtResource("4_fkybt")
+
+[node name="Jump" type="Node" parent="States" unique_id=1785512497]
+unique_name_in_owner = true
+script = ExtResource("4_x3wgy")
+jump_velocity = null
+
+[node name="Fall" type="Node" parent="States" unique_id=2066426198]
+unique_name_in_owner = true
+script = ExtResource("5_x3wgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1752651982]
+unique_name_in_owner = true
+texture = ExtResource("2_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=884226597]
+position = Vector2(-3, 26.5)
+shape = SubResource("RectangleShape2D_6t5aa")
+
+[node name="Label" type="Label" parent="." unique_id=1053318324]
+unique_name_in_owner = true
+offset_left = -67.0
+offset_top = -80.0
+offset_right = 68.0
+offset_bottom = -34.0
+theme_override_fonts/font = SubResource("FontFile_vgqql")
+theme_override_font_sizes/font_size = 32
+text = "Label"

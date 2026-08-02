@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cpwjll7mmoy6u"]
+
+[ext_resource type="Script" uid="uid://cv5vhiyc085lc" path="res://Metroidvania Course/00_global/audio/audio.gd" id="1_mwy7r"]
+[ext_resource type="AudioStream" uid="uid://lasyu6l238fb" path="res://Metroidvania Course/00_global/audio/ui_bloop_audio.wav" id="2_beqju"]
+[ext_resource type="AudioStream" uid="uid://ss2ruiyrtcs5" path="res://Metroidvania Course/00_global/audio/ui_select_audio.wav" id="3_f284e"]
+[ext_resource type="AudioStream" uid="uid://drl2qe6kk43y1" path="res://Metroidvania Course/00_global/audio/ui_woosh.wav" id="4_belbg"]
+[ext_resource type="AudioStream" uid="uid://cle13ysmtg43m" path="res://Metroidvania Course/00_global/audio/ui_success_audio.wav" id="5_67cwg"]
+[ext_resource type="AudioStream" uid="uid://fxk0juuqrlf5" path="res://Metroidvania Course/00_global/audio/ui_error_audio.wav" id="6_ye0rk"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_mwy7r"]
+polyphony = 16
+
+[node name="Audio" type="Node" unique_id=2055872478]
+process_mode = 3
+script = ExtResource("1_mwy7r")
+ui_focus_audio = ExtResource("2_beqju")
+ui_select_audio = ExtResource("3_f284e")
+ui_cancel_audio = ExtResource("4_belbg")
+ui_success_audio = ExtResource("5_67cwg")
+ui_error_audio = ExtResource("6_ye0rk")
+
+[node name="Music 1" type="AudioStreamPlayer" parent="." unique_id=906666818]
+unique_name_in_owner = true
+
+[node name="Music 2" type="AudioStreamPlayer" parent="." unique_id=1001023558]
+unique_name_in_owner = true
+
+[node name="UI" type="AudioStreamPlayer" parent="." unique_id=551933185]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_mwy7r")
+bus = &"UI"

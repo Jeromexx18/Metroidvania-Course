@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bcpmc88qq7xu4"]
+
+[ext_resource type="PackedScene" uid="uid://dtskcmvl3b76g" path="res://Metroidvania Course/Scenes/player/player.tscn" id="1_m2udq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2udq"]
+size = Vector2(2791, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxd4t"]
+size = Vector2(12.406626, 8.766595)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7ie1"]
+size = Vector2(11.938545, 8.220103)
+
+[sub_resource type="Gradient" id="Gradient_m2udq"]
+offsets = PackedFloat32Array(0, 0.86206895, 1)
+colors = PackedColorArray(0.0015623723, 0.16010767, 0.65618515, 0.96862745, 0.0052959183, 0.19270203, 0.72731924, 0.81203514, 0.6745098, 0, 0.7019608, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hxd4t"]
+gradient = SubResource("Gradient_m2udq")
+fill_to = Vector2(0, 0.67464113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8whq"]
+size = Vector2(64.535126, 30.821663)
+
+[node name="world" type="Node2D" unique_id=1641021243]
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1458919235]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=336994838]
+position = Vector2(718.5, 439)
+shape = SubResource("RectangleShape2D_m2udq")
+debug_color = Color(0.8614258, 0.26837686, 0.46994597, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=2024298779]
+position = Vector2(890.7717, 359)
+scale = Vector2(11.408709, 22.021532)
+shape = SubResource("RectangleShape2D_hxd4t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=20814322]
+position = Vector2(976.84485, 375.15515)
+rotation = 2.3561945
+scale = Vector2(11.408707, 22.021532)
+shape = SubResource("RectangleShape2D_k7ie1")
+
+[node name="one way collision" type="Sprite2D" parent="." unique_id=609066667]
+position = Vector2(466.99997, 282.875)
+scale = Vector2(3.503906, 0.5039061)
+texture = SubResource("GradientTexture2D_hxd4t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="one way collision" unique_id=1485070210]
+position = Vector2(32.249733, -75.16281)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="one way collision/StaticBody2D" unique_id=2107095075]
+position = Vector2(-32.24972, 59.534878)
+scale = Vector2(0.9999997, 0.9999999)
+shape = SubResource("RectangleShape2D_q8whq")
+one_way_collision = true
+
+[node name="Player" parent="." unique_id=2022283424 instance=ExtResource("1_m2udq")]
+move_speed = 1000.0

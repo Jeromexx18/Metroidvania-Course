@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4qjfic010kju"
+path="res://.godot/imported/dash.wav-56575fc8063f6ee2938845d88fa8535d.sample"
+
+[deps]
+
+source_file="res://Metroidvania Course/00_global/audio/audio/dash.wav"
+dest_files=["res://.godot/imported/dash.wav-56575fc8063f6ee2938845d88fa8535d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

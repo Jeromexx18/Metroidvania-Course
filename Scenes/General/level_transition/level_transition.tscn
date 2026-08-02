@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bo7ep40gltk3a"]
+
+[ext_resource type="Script" uid="uid://c770n0cu2bd5d" path="res://Metroidvania Course/Scenes/General/level_transition/level_transition.gd" id="1_eqi81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r230e"]
+size = Vector2(32, 32)
+
+[node name="LevelTransition" type="Node2D" unique_id=583247745]
+script = ExtResource("1_eqi81")
+target_level = "uid://uaye2gey42rl"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=478536370]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1355085381]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_r230e")
+debug_color = Color(0.0627451, 0.61960787, 0.17254902, 0.41960785)

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://oa02nw52cquo"]
+
+[ext_resource type="TileSet" uid="uid://o7ssxqme221p" path="res://Metroidvania Course/Scenes/levels/01 The Forest/forest.tres" id="1_ums20"]
+
+[node name="01" type="Node2D" unique_id=948940315]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1903416879]
+tile_set = ExtResource("1_ums20")

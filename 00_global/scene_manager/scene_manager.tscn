@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dlje7vcacbm0o"]
+
+[ext_resource type="Script" uid="uid://bdfntx6xwbcv3" path="res://Metroidvania Course/00_global/scene_manager/scene_manager.gd" id="1_4wb0k"]
+
+[sub_resource type="Gradient" id="Gradient_ck4m8"]
+offsets = PackedFloat32Array(0.333, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a40uy"]
+gradient = SubResource("Gradient_ck4m8")
+width = 1440
+height = 810
+fill = 2
+fill_from = Vector2(0.5058824, 0.49411765)
+fill_to = Vector2(1, 0.5)
+
+[node name="SceneManager" type="CanvasLayer" unique_id=68420692]
+process_mode = 3
+script = ExtResource("1_4wb0k")
+
+[node name="Fade" type="Control" parent="." unique_id=1912266782]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="Fade" unique_id=907723027]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -363.0
+offset_top = -106.0
+offset_right = 1077.0
+offset_bottom = 704.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_a40uy")

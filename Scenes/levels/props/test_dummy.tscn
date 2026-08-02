@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b2cuimfknfeqr"]
+
+[ext_resource type="Script" uid="uid://c725h8hsb4gj6" path="res://Metroidvania Course/Scenes/levels/props/test_dummy.gd" id="1_dluar"]
+[ext_resource type="Script" uid="uid://hvr30iaccx8y" path="res://Metroidvania Course/Scenes/General/scripts/damage_area.gd" id="2_alqlg"]
+[ext_resource type="Script" uid="uid://b8puhmb846r64" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings.gd" id="2_hcsup"]
+[ext_resource type="Texture2D" uid="uid://b2fmldb6ik11b" path="res://Metroidvania Course/Scenes/player/sprites/props_destructible.png" id="3_hcsup"]
+[ext_resource type="Resource" uid="uid://dny0jusem76gw" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings/hit_wood_small.tres" id="3_yjfdf"]
+[ext_resource type="Resource" uid="uid://cmij0lcukh7gn" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings/hit_wood_medium.tres" id="4_yjfdf"]
+[ext_resource type="AudioStream" uid="uid://b3xlpqgga1k76" path="res://Metroidvania Course/00_global/audio/audio/hit.wav" id="7_2hbw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hbw4"]
+atlas = ExtResource("3_hcsup")
+region = Rect2(15, 10, 17, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew71g"]
+atlas = ExtResource("3_hcsup")
+region = Rect2(15, 51, 17, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjfdf"]
+size = Vector2(14, 33)
+
+[node name="test_dummy" type="Node2D" unique_id=1542790898]
+script = ExtResource("1_dluar")
+particles = Array[ExtResource("2_hcsup")]([ExtResource("3_yjfdf"), ExtResource("4_yjfdf")])
+
+[node name="bodysprite" type="Sprite2D" parent="." unique_id=140557679]
+process_mode = 3
+texture = SubResource("AtlasTexture_2hbw4")
+
+[node name="basesprite" type="Sprite2D" parent="." unique_id=564252012]
+position = Vector2(0, 20)
+texture = SubResource("AtlasTexture_ew71g")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=319352842]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_alqlg")
+audio = ExtResource("7_2hbw4")
+metadata/_custom_type_script = "uid://hvr30iaccx8y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=2140480453]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_yjfdf")
+debug_color = Color(0, 0.6, 0.69803923, 0)
