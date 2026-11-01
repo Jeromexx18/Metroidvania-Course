@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://cwdk1s3axpnx6"]
+
+[ext_resource type="Script" uid="uid://bxyepy4wtt4nf" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Slime2/enemy.gd" id="1_aumhv"]
+[ext_resource type="Texture2D" uid="uid://dw1wagw2pyxao" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Demon Chest/dchestspritesheet.png" id="1_d7t03"]
+[ext_resource type="Script" uid="uid://dkmm7vxsnbndd" path="res://Metroidvania Course/Scenes/General/scripts/hazard_area.gd" id="2_t51it"]
+[ext_resource type="Script" uid="uid://bx4r3wypye5jh" path="res://Metroidvania Course/Scenes/General/scripts/loot_dropper.gd" id="3_aumhv"]
+[ext_resource type="Script" uid="uid://hvr30iaccx8y" path="res://Metroidvania Course/Scenes/General/scripts/damage_area.gd" id="5_kf1gh"]
+[ext_resource type="Script" uid="uid://ncslrhd7n0an" path="res://Metroidvania Course/Scenes/Enemies/Enemy State Templates/states/enemy_state_machine.gd" id="6_eb7w0"]
+[ext_resource type="Script" uid="uid://ghmrtsfjbelb" path="res://Metroidvania Course/Scenes/Enemies/Enemy State Templates/es_death.gd" id="8_5v67b"]
+[ext_resource type="Script" uid="uid://b2j8q17122588" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Demon Chest/es_flying.gd" id="10_j51s4"]
+[ext_resource type="Script" uid="uid://b0w8r1rr14csc" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Demon Chest/es_fly_chase.gd" id="11_07bdj"]
+[ext_resource type="Script" uid="uid://clkya7gop6ir5" path="res://Metroidvania Course/Scenes/Enemies/Enemy State Templates/es_stun.gd" id="11_rkgwv"]
+[ext_resource type="Script" uid="uid://c8l7v18u8sk3b" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Demon Chest/es_fly_attack.gd" id="12_kf1gh"]
+[ext_resource type="Script" uid="uid://bd00qircoh88j" path="res://Metroidvania Course/Scenes/Enemies/sensors/player_sensor.gd" id="13_aumhv"]
+[ext_resource type="Script" uid="uid://dxlm41s0fju58" path="res://Metroidvania Course/Scenes/Enemies/Scripts/Decision Engines/decision_engines/decision_engine_flying.gd" id="13_rkgwv"]
+[ext_resource type="Script" uid="uid://b5y34j6vtu6ew" path="res://Metroidvania Course/Scenes/General/scripts/attack_area.gd" id="14_rkgwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x15l6"]
+size = Vector2(36, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgwv"]
+size = Vector2(29, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip5w7"]
+size = Vector2(39, 31)
+
+[sub_resource type="Animation" id="Animation_04fdk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1if6y"]
+resource_name = "chase"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_dt3fj"]
+resource_name = "death"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ylky7"]
+resource_name = "fly"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_d2lvt"]
+resource_name = "fly_attack"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 15, 15, 16]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.2],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rkgwv"]
+resource_name = "stun"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2uie"]
+_data = {
+&"RESET": SubResource("Animation_04fdk"),
+&"chase": SubResource("Animation_1if6y"),
+&"death": SubResource("Animation_dt3fj"),
+&"fly": SubResource("Animation_ylky7"),
+&"fly_attack": SubResource("Animation_d2lvt"),
+&"stun": SubResource("Animation_rkgwv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aumhv"]
+radius = 124.61541
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf1gh"]
+size = Vector2(34, 32)
+
+[node name="DemonChest" type="CharacterBody2D" unique_id=853580222]
+collision_layer = 0
+script = ExtResource("1_aumhv")
+affected_by_gravity = false
+face_left_on_start = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1686767946]
+unique_name_in_owner = true
+texture = ExtResource("1_d7t03")
+flip_h = true
+hframes = 6
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1188862398]
+unique_name_in_owner = true
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_x15l6")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1856615229]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("5_kf1gh")
+metadata/_custom_type_script = "uid://hvr30iaccx8y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1247878817]
+position = Vector2(-3.5, 2)
+shape = SubResource("RectangleShape2D_rkgwv")
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=426374412]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 33
+script = ExtResource("2_t51it")
+metadata/_custom_type_script = "uid://dkmm7vxsnbndd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=1972998800]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_ip5w7")
+debug_color = Color(0.94509804, 0, 0.007843138, 0.03529412)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1502684051]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_q2uie")
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1048064247]
+unique_name_in_owner = true
+script = ExtResource("6_eb7w0")
+metadata/_custom_type_script = "uid://ncslrhd7n0an"
+
+[node name="ESFlying" type="Node" parent="EnemyStateMachine" unique_id=1008599829]
+unique_name_in_owner = true
+script = ExtResource("10_j51s4")
+animation_name = "fly"
+
+[node name="ESFlyChase" type="Node" parent="EnemyStateMachine" unique_id=359985866]
+unique_name_in_owner = true
+script = ExtResource("11_07bdj")
+chase_speed = 50.0
+animation_name = "attack"
+
+[node name="ESFlyAttack" type="Node" parent="EnemyStateMachine" unique_id=188970717 node_paths=PackedStringArray("attack_area")]
+unique_name_in_owner = true
+script = ExtResource("12_kf1gh")
+move_speed = 300.0
+cooldown = 1.0
+attack_area = NodePath("../../HazardArea")
+animation_name = "fly_attack"
+
+[node name="ESStun" type="Node" parent="EnemyStateMachine" unique_id=1149405957]
+unique_name_in_owner = true
+script = ExtResource("11_rkgwv")
+metadata/_custom_type_script = "uid://clkya7gop6ir5"
+
+[node name="ESDeath" type="Node" parent="EnemyStateMachine" unique_id=382122601]
+unique_name_in_owner = true
+script = ExtResource("8_5v67b")
+animation_name = "death"
+metadata/_custom_type_script = "uid://ghmrtsfjbelb"
+
+[node name="PlayerSensor" type="Area2D" parent="." unique_id=2126050630]
+unique_name_in_owner = true
+script = ExtResource("13_aumhv")
+metadata/_custom_type_script = "uid://bd00qircoh88j"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor" unique_id=1204064384]
+shape = SubResource("CircleShape2D_aumhv")
+debug_color = Color(0.24627817, 0.6351781, 7.70092e-07, 0.06666667)
+
+[node name="LootDropper" type="Marker2D" parent="." unique_id=1768510111]
+script = ExtResource("3_aumhv")
+metadata/_custom_type_script = "uid://bx4r3wypye5jh"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=706486502]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("14_rkgwv")
+damage = 3.0
+metadata/_custom_type_script = "uid://b5y34j6vtu6ew"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1197068515]
+position = Vector2(-3, 4)
+shape = SubResource("RectangleShape2D_kf1gh")
+debug_color = Color(0.91764706, 0, 0.23529412, 0.5529412)
+
+[node name="DecisionEngineFlying" type="Node" parent="." unique_id=1436265076 node_paths=PackedStringArray("fly_state", "chase_state", "stun_state", "attack_state", "death_state")]
+script = ExtResource("13_rkgwv")
+fly_state = NodePath("../EnemyStateMachine/ESFlying")
+chase_state = NodePath("../EnemyStateMachine/ESFlyChase")
+stun_state = NodePath("../EnemyStateMachine/ESStun")
+attack_state = NodePath("../EnemyStateMachine/ESFlyAttack")
+death_state = NodePath("../EnemyStateMachine/ESDeath")
+metadata/_custom_type_script = "uid://dxlm41s0fju58"

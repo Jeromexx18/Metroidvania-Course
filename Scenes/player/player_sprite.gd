@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func tween_color(duration:float=0.5, color: Color=Color(2.0, 1.0, 0.95)) -> void:
+func tween_color(duration:float=0.5, color: Color=Color(0.0, 1.5, 0.95)) -> void:
 	if tween:
 		tween.kill()
 	modulate = color

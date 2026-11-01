@@ -33,7 +33,7 @@ distance = -376.0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=345187470]
 visible = false
-position = Vector2(0, 96)
+position = Vector2(17, 111)
 color = Color(0.015686275, 0.16078432, 0.24705882, 1)
 energy = 0.6
 blend_mode = 2
@@ -147,13 +147,13 @@ visible = false
 position = Vector2(136, 144)
 
 [node name="LevelTransition2" parent="." unique_id=1042871695 instance=ExtResource("3_p6m5w")]
-position = Vector2(608, 336)
+position = Vector2(609, 343)
 size = 3
 location = 3
 target_level = "uid://ycmh1hk7avlr"
 
 [node name="LevelTransition3" parent="." unique_id=902575798 instance=ExtResource("3_p6m5w")]
-position = Vector2(1416, 304)
+position = Vector2(1392, 296)
 size = 6
 location = 1
 target_level = "uid://cnpmilssddd5e"
@@ -161,10 +161,12 @@ target_level = "uid://cnpmilssddd5e"
 [node name="SavePoint" parent="." unique_id=1331079766 instance=ExtResource("7_yso8a")]
 position = Vector2(1006, 266)
 
-[node name="Node2D" parent="." unique_id=50251245 instance=ExtResource("8_ksr4d")]
-position = Vector2(-208, 8)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=125101304]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1882620414]
 shape = SubResource("WorldBoundaryShape2D_ksr4d")
+
+[node name="Torch" parent="." unique_id=1859993098 instance=ExtResource("8_ksr4d")]
+position = Vector2(142, 262)
+frame = 4
+frame_progress = 0.40256

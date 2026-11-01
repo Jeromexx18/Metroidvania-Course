@@ -215,7 +215,7 @@ vframes = 5
 unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_4yqpv")
-autoplay = &"ground_slam"
+autoplay = &"double_jump"
 
 [node name="OrbSprite" type="Sprite2D" parent="." unique_id=373691313]
 unique_name_in_owner = true

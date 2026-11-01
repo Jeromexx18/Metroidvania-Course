@@ -21,9 +21,11 @@ ui_error_audio = ExtResource("6_ye0rk")
 
 [node name="Music 1" type="AudioStreamPlayer" parent="." unique_id=906666818]
 unique_name_in_owner = true
+bus = &"Music"
 
 [node name="Music 2" type="AudioStreamPlayer" parent="." unique_id=1001023558]
 unique_name_in_owner = true
+bus = &"Music"
 
 [node name="UI" type="AudioStreamPlayer" parent="." unique_id=551933185]
 unique_name_in_owner = true

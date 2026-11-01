@@ -69,7 +69,7 @@ func _on_load_pressed() ->void:
 	pass
 
 func _on_quit_pressed() ->void:
-	SceneManager.transition_scene( "res://Platformer/Title_Screen/title_screen.tscn" , "", Vector2.ZERO,"up")
+	SceneManager.transition_scene( "res://Metroidvania Course/Title_Screen/title_screen.tscn" , "", Vector2.ZERO,"up")
 		#CLEAR GAME OVER SCRE
 	clear_game_over()
 	pass

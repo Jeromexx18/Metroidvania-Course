@@ -37,13 +37,14 @@ signal damage_taken
 #endregion
 
 
-#region /// variables?
-@export var gravity:float=1000
+#region /// standard variables?
+@export var gravity: float=1000
 @export var move_speed:float=300
 var direction:Vector2=Vector2.ZERO
 var flip_h:bool=false
 var gravity_multiplier:float=1.0
 @export var max_fall_velocity:float=600
+var recoil:Vector2 = Vector2.ZERO
 
 #endregion
 
@@ -111,11 +112,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	elif event.is_action_pressed("pause"):
 		#buitl in feature below
-		
 		get_tree().paused = true
-		var pause_menu : PauseMenu = load( "res://Platformer/Scenes/pause_menu/pause_menu.tscn" ).instantiate()
+		var pause_menu : PauseMenu = preload( "res://Metroidvania Course/Scenes/pause_menu/pause_menu.tscn" ).instantiate()
 		add_child( pause_menu )
 		return
+		
 		
 		
 		
@@ -156,7 +157,10 @@ func _physics_process(_delta: float) -> void:
 	change_state(current_state.physics_process(_delta))
 	
 	#drop_through_platform()
-	
+	#add recoil velocity
+	#velocity+=recoil
+	#recoil = Vector2.RIGHT
+	pass
 	#region /// comments nothing here
 #func update_animation():
 	#
@@ -269,15 +273,18 @@ func _on_damage_taken( a :AttackArea ) ->void:
 	if current_state == PlayerStateDeath:
 		
 		return
-	hp -= a.damage
+	hp -=  a.damage
 	damage_taken.emit()
 	#print("player took damage!!:" , hp)
 	pass
 
 
 func can_dash() ->bool:
+	
 	if dash == false or dash_count > 0:
+	
 		return false
+		
 	return true
 
 func can_morph() ->bool:

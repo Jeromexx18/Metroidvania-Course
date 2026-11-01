@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kwup43fawyoi"
+path="res://.godot/imported/FLS_Glass Break_02.wav-81e0e6aa82a60e17f11e36e494b6aef2.sample"
+
+[deps]
+
+source_file="res://Metroidvania Course/00_global/audio/audio/FLS_Glass Break_02.wav"
+dest_files=["res://.godot/imported/FLS_Glass Break_02.wav-81e0e6aa82a60e17f11e36e494b6aef2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

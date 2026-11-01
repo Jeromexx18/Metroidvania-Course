@@ -55,15 +55,17 @@ func  show_new_game_menu():
 	load_game_menu.visible = false
 	
 	if SaveManager.save_file_exists( 0 ):
-		new_slot_01.text = "NEW GAME 01 "
+		new_slot_01.text = "NEW GAME SLOT 01 "
+		new_slot_01.grab_focus()
 	
 	if SaveManager.save_file_exists( 1 ):
-		new_slot_02.text = "NEW GAME 02"
-		
+		new_slot_02.text = "NEW GAME SLOT 02"
+		new_slot_02.grab_focus()
 	if SaveManager.save_file_exists( 2 ):
-		new_slot_03.text = "NEW GAME 03"
+		new_slot_03.text = "NEW GAME SLOT 03"
+		new_slot_03.grab_focus()
+
 		
-	new_slot_01.grab_focus()
 	
 	pass
 

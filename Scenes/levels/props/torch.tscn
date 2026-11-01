@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f5dcro2p3v4q"]
 
 [ext_resource type="Texture2D" uid="uid://buqedowodkydt" path="res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/ch_02_world_building_foundations/ch_02_world_building_foundations/forgotten_forest_example_tileset.png" id="1_s7qki"]
-[ext_resource type="Script" uid="uid://ov7lkd74yko2" path="res://point_light_2d.gd" id="2_hq0pn"]
+[ext_resource type="Script" uid="uid://c3b1qkjuro24m" path="res://Metroidvania Course/Scenes/General/scripts/light_flicker.gd" id="2_upxpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_llm4y"]
 atlas = ExtResource("1_s7qki")
@@ -47,15 +47,15 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_t7c20"]
-offsets = PackedFloat32Array(0, 0.34732825, 0.7442748, 1)
-colors = PackedColorArray(0.972549, 1, 0.3254902, 1, 0.9411765, 0.49019608, 0.14509805, 1, 1, 0.2, 0.023529412, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.1, 0.2, 0.4, 0.7, 1)
+colors = PackedColorArray(0.972549, 1, 0.3254902, 1, 1.9530393, 0, 0.2040196, 1, 1.5645312, 1.1912912, 0, 1, 1, 0.9254902, 0.6666667, 0.7882353, 0.028640928, 0.010790863, 3.008172e-09, 1)
+metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f5p80"]
 gradient = SubResource("Gradient_t7c20")
-width = 68
 fill = 1
-fill_from = Vector2(0.4987431, 0.41025642)
-fill_to = Vector2(1, 0.45726496)
+fill_from = Vector2(0.5, 0.4)
+fill_to = Vector2(0.9, 0.9)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7uey7"]
 light_mode = 1
@@ -90,12 +90,16 @@ autoplay = "default"
 frame_progress = 0.1668498
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=949267806]
-position = Vector2(-3, -18)
+visible = false
+position = Vector2(-1.0000012, -17.5)
+scale = Vector2(1.1176469, 1.078125)
 texture = SubResource("GradientTexture2D_f5p80")
-script = ExtResource("2_hq0pn")
-flicker_frequency = 0.1
+script = ExtResource("2_upxpn")
+flicker_frequency = 0.4
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=395476776]
+unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_7uey7")
 position = Vector2(0, -17)
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_a2lvp")

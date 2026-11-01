@@ -111,7 +111,7 @@ func player_ssound() ->void:
 	
 	
 	pass
-
+#audio pool
 func play_spatial_sound( audio:AudioStream, pos:Vector2 ,
  ignore_pool: bool = false, 
 was_player :bool = false, volume:bool =0.5 

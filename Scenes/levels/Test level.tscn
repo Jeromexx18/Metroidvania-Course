@@ -7,18 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://00uobnipej3h" path="res://Metroidvania Course/Scenes/General/door/switch.tscn" id="3_0jhvp"]
 [ext_resource type="PackedScene" uid="uid://cd81700qwupiq" path="res://Metroidvania Course/Scenes/levels/props/breakable_crate.tscn" id="3_an64k"]
 [ext_resource type="PackedScene" uid="uid://bo7ep40gltk3a" path="res://Metroidvania Course/Scenes/General/level_transition/level_transition.tscn" id="4_mavux"]
-[ext_resource type="PackedScene" uid="uid://c45fp7xc6x8x1" path="res://Metroidvania Course/Scenes/Enemies/Slime/Slime.tscn" id="4_ms4xf"]
+[ext_resource type="PackedScene" uid="uid://c45fp7xc6x8x1" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Slime/Slime.tscn" id="4_ms4xf"]
 [ext_resource type="Script" uid="uid://b8puhmb846r64" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings.gd" id="4_s38j1"]
 [ext_resource type="Script" uid="uid://dd0l17bd326dq" path="res://Metroidvania Course/Scenes/General/scripts/Levelbounds.gd" id="5_78ilq"]
 [ext_resource type="Resource" uid="uid://dny0jusem76gw" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings/hit_wood_small.tres" id="6_s38j1"]
 [ext_resource type="Script" uid="uid://hvr30iaccx8y" path="res://Metroidvania Course/Scenes/General/scripts/damage_area.gd" id="7_0jhvp"]
 [ext_resource type="PackedScene" uid="uid://dk2x4n4gdtv0p" path="res://Metroidvania Course/Scenes/levels/props/spike_dummy.tscn" id="7_c5rby"]
-[ext_resource type="AudioStream" uid="uid://b3xlpqgga1k76" path="res://Metroidvania Course/00_global/audio/audio/hit.wav" id="8_mavux"]
 [ext_resource type="Script" uid="uid://cnu3xiyx406rc" path="res://Metroidvania Course/Scenes/General/scripts/breakable.gd" id="9_s38j1"]
 [ext_resource type="PackedScene" uid="uid://0r6pdglm0s8a" path="res://Metroidvania Course/Scenes/General/player_spawn/PlayerSpawn.tscn" id="15_ecwb1"]
 [ext_resource type="PackedScene" uid="uid://dd55xtu05voik" path="res://Metroidvania Course/Scenes/levels/props/slam_breakable.tscn" id="16_an64k"]
 [ext_resource type="PackedScene" uid="uid://b1ai0ja0fwmpi" path="res://Metroidvania Course/Scenes/General/save_point/save_point.tscn" id="17_ms4xf"]
-[ext_resource type="PackedScene" uid="uid://6ebsk4libfmc" path="res://Metroidvania Course/Scenes/Enemies/Slime2/Slime2.tscn" id="19_ecwb1"]
+[ext_resource type="PackedScene" uid="uid://6ebsk4libfmc" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Slime2/Slime2.tscn" id="19_ecwb1"]
+[ext_resource type="PackedScene" uid="uid://ch8h3teejps7e" path="res://Metroidvania Course/Scenes/Enemies/Enemies/living armor/living_armor.tscn" id="20_vw1xr"]
+[ext_resource type="PackedScene" uid="uid://cqqj37nrioja3" path="res://Metroidvania Course/Scenes/levels/props/fountain_light.tscn" id="21_k8uhs"]
+[ext_resource type="Script" uid="uid://c8g5xq6s4ikhe" path="res://Metroidvania Course/Scenes/General/scripts/patrol_limit.gd" id="21_q4dus"]
+[ext_resource type="PackedScene" uid="uid://crgpaiga2pnmj" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Doom Scribe/Doomscribe.tscn" id="23_bmlsu"]
+[ext_resource type="PackedScene" uid="uid://bce7bhx4b4snk" path="res://Metroidvania Course/Scenes/Enemies/Enemies/Doom Scribe/doom_scribe_curse.tscn" id="23_h3foi"]
 
 [sub_resource type="Resource" id="Resource_s38j1"]
 script = ExtResource("4_s38j1")
@@ -26,16 +30,6 @@ texture = ExtResource("6_s38j1")
 metadata/_custom_type_script = "uid://b8puhmb846r64"
 
 [sub_resource type="Resource" id="Resource_an64k"]
-script = ExtResource("4_s38j1")
-texture = ExtResource("6_s38j1")
-metadata/_custom_type_script = "uid://b8puhmb846r64"
-
-[sub_resource type="Resource" id="Resource_f2jji"]
-script = ExtResource("4_s38j1")
-texture = ExtResource("6_s38j1")
-metadata/_custom_type_script = "uid://b8puhmb846r64"
-
-[sub_resource type="Resource" id="Resource_ms4xf"]
 script = ExtResource("4_s38j1")
 texture = ExtResource("6_s38j1")
 metadata/_custom_type_script = "uid://b8puhmb846r64"
@@ -48,30 +42,30 @@ metadata/_custom_type_script = "uid://b8puhmb846r64"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s38j1"]
 size = Vector2(124.5, 351.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mavux"]
-size = Vector2(50, 48)
+[sub_resource type="Environment" id="Environment_bmlsu"]
 
 [node name="TestLevel" type="Node2D" unique_id=861349691]
-position = Vector2(8, -16)
 
-[node name="AbilityPickup" parent="." unique_id=974635963 instance=ExtResource("1_f2jji")]
+[node name="abilities" type="Node" parent="." unique_id=35603612]
+
+[node name="AbilityPickup" parent="abilities" unique_id=974635963 instance=ExtResource("1_f2jji")]
 z_index = 2
 position = Vector2(336, 944)
 
-[node name="AbilityPickup4" parent="." unique_id=396300654 instance=ExtResource("1_f2jji")]
-z_index = 2
-position = Vector2(288, 944)
-type = 1
-
-[node name="AbilityPickup2" parent="." unique_id=341283735 instance=ExtResource("1_f2jji")]
+[node name="AbilityPickup2" parent="abilities" unique_id=341283735 instance=ExtResource("1_f2jji")]
 z_index = 2
 position = Vector2(392, 944)
 type = 3
 
-[node name="AbilityPickup3" parent="." unique_id=755041373 instance=ExtResource("1_f2jji")]
+[node name="AbilityPickup3" parent="abilities" unique_id=755041373 instance=ExtResource("1_f2jji")]
 z_index = 2
-position = Vector2(440, 944)
+position = Vector2(170, 817)
 type = 2
+
+[node name="AbilityPickup4" parent="abilities" unique_id=396300654 instance=ExtResource("1_f2jji")]
+z_index = 2
+position = Vector2(260, 943)
+type = 1
 
 [node name="levelelements" type="Node2D" parent="." unique_id=1265545247]
 position = Vector2(388, 532)
@@ -89,7 +83,7 @@ tile_set = ExtResource("1_508jn")
 
 [node name="TileMapLayerplatforms" type="TileMapLayer" parent="levelelements" unique_id=1125927920]
 position = Vector2(-535, -370)
-tile_map_data = PackedByteArray("AAD9/x8AAgAEAA4AAAAIABMAAgAQAAYAAAAJABMAAgARAAYAAAAIABAAAgAQAAYAAAAJABAAAgARAAYAAAA=")
+tile_map_data = PackedByteArray("AAAIABMAAgAQAAYAAAAJABMAAgARAAYAAAAIABAAAgAQAAYAAAAJABAAAgARAAYAAAA=")
 tile_set = ExtResource("1_508jn")
 
 [node name="SlamBreakable" parent="levelelements" unique_id=1431890935 instance=ExtResource("16_an64k")]
@@ -131,10 +125,6 @@ destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_s38j1")
 position = Vector2(-862, 367)
 destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_s38j1"), SubResource("Resource_an64k")])
 
-[node name="Breakable11" parent="props" unique_id=2033840206 instance=ExtResource("3_an64k")]
-position = Vector2(-425, 436)
-destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_s38j1"), SubResource("Resource_an64k")])
-
 [node name="Breakable12" parent="props" unique_id=1916722772 instance=ExtResource("3_an64k")]
 position = Vector2(-223, 436)
 destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_s38j1"), SubResource("Resource_an64k")])
@@ -143,16 +133,6 @@ destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_s38j1")
 position = Vector2(-224, 401)
 destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_s38j1"), SubResource("Resource_an64k")])
 
-[node name="Breakable2" parent="props" unique_id=754913151 instance=ExtResource("3_an64k")]
-position = Vector2(-426, 400)
-destroy_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_f2jji"), SubResource("Resource_ms4xf")])
-
-[node name="Breakable3" parent="props" unique_id=1570195467 instance=ExtResource("3_an64k")]
-position = Vector2(-495, 440)
-hp = 2.0
-fixed_hit_count = true
-hit_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_ap70j")])
-
 [node name="Breakable4" parent="props" unique_id=854360683 instance=ExtResource("3_an64k")]
 position = Vector2(-355, 312)
 hp = 2.0
@@ -160,7 +140,7 @@ fixed_hit_count = true
 hit_particles = Array[ExtResource("4_s38j1")]([SubResource("Resource_ap70j")])
 
 [node name="SpikeDummy" parent="props" unique_id=239061324 instance=ExtResource("7_c5rby")]
-position = Vector2(-703, -17)
+position = Vector2(-309, 292)
 
 [node name="Breakablewall" type="Node2D" parent="props" unique_id=837060209]
 position = Vector2(-142, -162)
@@ -183,7 +163,7 @@ position = Vector2(15, 31)
 shape = SubResource("RectangleShape2D_s38j1")
 
 [node name="Slime" parent="." unique_id=1400950640 instance=ExtResource("4_ms4xf")]
-position = Vector2(-16, 512)
+position = Vector2(40, 949)
 
 [node name="Door" parent="." unique_id=1649487480 instance=ExtResource("2_nxtvv")]
 position = Vector2(774, 541)
@@ -203,23 +183,66 @@ width = 1136
 height = 814
 metadata/_custom_type_script = "uid://dd0l17bd326dq"
 
-[node name="DamageArea" type="Area2D" parent="." unique_id=1613509]
-position = Vector2(-165, 517)
-collision_layer = 32
-collision_mask = 0
-script = ExtResource("7_0jhvp")
-audio = ExtResource("8_mavux")
-metadata/_custom_type_script = "uid://hvr30iaccx8y"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1260327035]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_mavux")
-
 [node name="PlayerSpawn" parent="." unique_id=2017253389 instance=ExtResource("15_ecwb1")]
-position = Vector2(164, 552)
+position = Vector2(170, 408)
 
 [node name="SavePoint" parent="." unique_id=1331079766 instance=ExtResource("17_ms4xf")]
 position = Vector2(744, 956)
 
 [node name="Slime2" parent="." unique_id=1335620557 instance=ExtResource("19_ecwb1")]
 position = Vector2(441, 516)
+
+[node name="living_armour" parent="." unique_id=1057506189 instance=ExtResource("20_vw1xr")]
+position = Vector2(-90, 969)
+
+[node name="PatrolLimit" type="Node2D" parent="living_armour" unique_id=1281006626]
+position = Vector2(-37, 65)
+script = ExtResource("21_q4dus")
+metadata/_custom_type_script = "uid://c8g5xq6s4ikhe"
+
+[node name="PatrolLimit2" type="Node2D" parent="living_armour" unique_id=814163072]
+position = Vector2(281, 68)
+script = ExtResource("21_q4dus")
+side = 2
+metadata/_custom_type_script = "uid://c8g5xq6s4ikhe"
+
+[node name="living_armour2" parent="." unique_id=68197933 instance=ExtResource("20_vw1xr")]
+position = Vector2(-107, 502)
+
+[node name="PatrolLimit" type="Node2D" parent="living_armour2" unique_id=1790589622]
+position = Vector2(-115, 31)
+script = ExtResource("21_q4dus")
+metadata/_custom_type_script = "uid://c8g5xq6s4ikhe"
+
+[node name="PatrolLimit2" type="Node2D" parent="living_armour2" unique_id=659651075]
+position = Vector2(215, 28)
+script = ExtResource("21_q4dus")
+side = 2
+metadata/_custom_type_script = "uid://c8g5xq6s4ikhe"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1196112437]
+environment = SubResource("Environment_bmlsu")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1978650813]
+visible = false
+color = Color(0.007843138, 0.39215687, 0.3882353, 1)
+energy = 0.6
+blend_mode = 2
+
+[node name="Torch" parent="." unique_id=1859993098 instance=ExtResource("21_k8uhs")]
+visible = false
+position = Vector2(205, 947)
+
+[node name="Torch2" parent="." unique_id=966680910 instance=ExtResource("21_k8uhs")]
+visible = false
+position = Vector2(370, 948)
+
+[node name="Torch3" parent="." unique_id=824640121 instance=ExtResource("21_k8uhs")]
+visible = false
+position = Vector2(670, 950)
+
+[node name="DoomScribe" parent="." unique_id=1801408546 instance=ExtResource("23_bmlsu")]
+position = Vector2(394, 436)
+
+[node name="DoomScribeCurse" parent="." unique_id=781375993 instance=ExtResource("23_h3foi")]
+position = Vector2(175, 322)

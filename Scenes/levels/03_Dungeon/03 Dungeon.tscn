@@ -14,10 +14,11 @@
 [node name="03Dungeon" type="Node2D" unique_id=1860933967]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1194885766]
-visible = false
 position = Vector2(13, 0)
-color = Color(0.015686275, 0.16078432, 0.24705882, 1)
+color = Color(0.37254903, 0.16862746, 0.69411767, 1)
+energy = 0.86
 blend_mode = 2
+shadow_enabled = true
 
 [node name="LevelTransition" parent="." unique_id=583247745 instance=ExtResource("1_smdkl")]
 z_index = 1
@@ -85,5 +86,5 @@ position = Vector2(-120, 3)
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1565616217]
 script = ExtResource("9_dvml5")
 track = ExtResource("10_kmvx8")
-reverb = 3
+reverb = 0
 metadata/_custom_type_script = "uid://bc48urjxe3fpw"

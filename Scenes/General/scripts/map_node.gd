@@ -96,7 +96,7 @@ func update_node_label( scene :Node ) ->void:
 	
 	pass
 	
-func create_entrance_data(transitions:Array[LevelTransition] ) ->void:
+func create_entrance_data( transitions:Array[LevelTransition] ) ->void:
 	entrances_bottom.clear()
 	entrances_left.clear()
 	entrances_top.clear()
@@ -179,7 +179,7 @@ func add_block() ->ColorRect:
 	var block : ColorRect = ColorRect.new()
 	transition_blocks.add_child( block )
 	block.custom_minimum_size.x = 1
-	block.custom_minimum_size.y = 1
+	block.custom_minimum_size.y = -1
 	return block
 
 
@@ -191,8 +191,8 @@ func display_player_location() ->void:
 	pos += ((player.global_position - indicator_offset) / SCALE_FACTOR)
 	
 	i.position = pos
-	var clamp : Vector2 = Vector2( 4,4 )
-	pos =pos.clamp( position + clamp, position + size - clamp )
+	var clamp_vector : Vector2 = Vector2( 4,4 )
+	pos =pos.clamp( position + clamp_vector, position + size - clamp_vector )
 	i.position = pos
 	#player location
 	#display player indicator

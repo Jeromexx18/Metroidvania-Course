@@ -1,7 +1,14 @@
 class_name ESStun  extends EnemyState
 
 
-@export var knockback_strength :float =100
+#EnemyState class will inherit the following variables:
+#@export var animation_name: String ="idle"
+#var state_machine: EnemyStateMachine
+#var enemy:Enemy
+#var blackboard : Blackboard
+
+
+@export var knockback_strength :float =50
 var vel_x :float =0
 var duration : float =0 
 var timer : float = 0
@@ -35,7 +42,7 @@ func exit() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func physics_update(delta: float) -> void:
 	timer +=delta
-	enemy.velocity.x = vel_x * ( 1-timer/duration ) 
+	enemy.velocity.x = vel_x * ( 1 - timer / duration ) 
 	if timer >= duration:
 		blackboard.can_decide = true
 	pass

@@ -1,0 +1,51 @@
+class_name ESFlying  extends EnemyState
+
+
+@export var speed: float = 50
+var left_limit: float
+var right_limit :float
+
+
+func _ready() -> void:
+	_set_limits()
+	pass
+
+func enter() -> void:
+	var anim : String = animation_name if animation_name else "fly"
+	enemy.play_animation ( anim )
+	pass # Replace with function body.
+
+func re_enter() -> void:
+	pass
+
+func exit() -> void:
+	
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func physics_update(_delta: float) ->void:
+	if enemy.is_on_wall():
+		enemy.change_dir( -blackboard.dir)
+	#print("dir =", blackboard.dir)
+	
+	elif enemy.global_position.x <= left_limit and blackboard.dir < 0:
+		enemy.change_dir(1.0 )
+		
+	elif enemy.global_position.x >= right_limit and blackboard.dir > 0:
+		enemy.change_dir(-1.0)
+	enemy.velocity = Vector2( speed * blackboard.dir, 0)
+	#enemy.velocity.x = fly_speed * blackboard.dir
+	pass
+
+func _set_limits()->void:
+	left_limit = owner.global_position.x -5000
+	right_limit = owner.global_position.x + 5000
+	for c in owner.get_children():
+		if c is PatrolLimit:
+			if c.side == Side.SIDE_LEFT:
+				left_limit = c.global_position.x
+			else:
+				right_limit=c.global_position.x
+	print("l:", left_limit, "| R :", right_limit)
+	
+	pass

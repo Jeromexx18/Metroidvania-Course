@@ -3,7 +3,7 @@ extends CanvasLayer
 
 #signalsto the next load scene node
 signal load_scene_started
-signal new_scene_ready(target_name:String, offset: Vector2)
+signal new_scene_ready( target_name:String, offset: Vector2 )
 signal load_scene_finished
 signal scene_entered ( uid:String )
 
@@ -18,10 +18,11 @@ var is_transitioning=false
 
 
 func _ready() -> void:
+	var current_scene : String = get_tree().current_scene.scene_file_path
 	fade.visible=false
 	await get_tree().process_frame 
 	load_scene_finished.emit()
-	var current_scene : String = get_tree().current_scene.scene_file_path
+	
 	current_scene_uid = ResourceUID.path_to_uid( current_scene )
 	scene_entered.emit( current_scene_uid )
 	pass
@@ -30,42 +31,33 @@ func _ready() -> void:
 func transition_scene( new_scene :String, target_area:String, player_offset: Vector2, dir: String)->void:
 	#no more multiple triggers
 	
-
 	get_tree().paused=true
-	
-	
 	
 	var fade_pos : Vector2 =get_fade_pos( dir)
 	
 	fade.visible=true
-	
 	load_scene_started.emit()
 	
-	await fade_screen( Vector2.ZERO, fade_pos)
+	await fade_screen(  fade_pos, Vector2.ZERO )
 	
-	
+	#fade new scene in
 	get_tree().change_scene_to_file( new_scene )
 	current_scene_uid = ResourceUID.path_to_uid( new_scene )
 	scene_entered.emit( current_scene_uid )
 	
 	await get_tree().scene_changed
-	
 	new_scene_ready.emit(target_area, player_offset)
 	
+	await fade_screen( Vector2.ZERO, -fade_pos )
+	fade.visible=false
 	#fade new scene in
 	await get_tree().process_frame
-	await fade_screen(Vector2.ZERO, fade_pos)
 	
+
 	
-	fade.visible=false
 	get_tree().paused=false
-	
 	load_scene_finished.emit()
 
-	#get_tree().paused=true
-	
-	
-	
 	
 	#region
 	#await get_tree().process_frame
@@ -90,11 +82,11 @@ func transition_scene( new_scene :String, target_area:String, player_offset: Vec
 
 func fade_screen(from:Vector2, to:Vector2)-> void: #Signal:
 	fade.position=from
-	var tween:Tween=create_tween()
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	var tween:Tween = create_tween()
+	#tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(fade, "position", to, 0.2 )
 	await tween.finished
-	return 
+	pass
 
 #using atween
 

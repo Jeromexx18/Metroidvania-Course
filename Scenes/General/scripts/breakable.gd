@@ -1,5 +1,5 @@
 @tool
-@icon("res://Platformer/icons/breakable.svg")
+@icon("res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/METROIDVAINIA/ch_04_player_abilities/ch_04_player_abilities/icons/breakable.svg"  )
 class_name Breakable extends Node2D
 signal destroyed
 signal damage_taken
@@ -14,8 +14,8 @@ signal damage_taken
 
 @export_category("Audio")
 @export var hit_audio :AudioStream = preload("uid://b3xlpqgga1k76")
+#@export var destroy_audio :AudioStream = preload("uid://kwup43fawyoi")
 @export var destroy_audio :AudioStream = preload("uid://bsqtq3oq7856g")
-
 
 @export var gravity:float=1000
 @onready var breakable_crate: Breakable = $"."

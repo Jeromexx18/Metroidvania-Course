@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxg5sjwjvcewb"
+path="res://.godot/imported/.ogg-cdabc2c478c86b7e61c1070d7bc37c39.oggvorbisstr"
+
+[deps]
+
+source_file="res://Metroidvania Course/00_global/audio/audio/.ogg"
+dest_files=["res://.godot/imported/.ogg-cdabc2c478c86b7e61c1070d7bc37c39.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

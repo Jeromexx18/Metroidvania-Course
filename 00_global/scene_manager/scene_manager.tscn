@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_ck4m8")
 width = 1440
 height = 810
 fill = 2
-fill_from = Vector2(0.5058824, 0.49411765)
+fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="SceneManager" type="CanvasLayer" unique_id=68420692]
@@ -22,16 +22,18 @@ script = ExtResource("1_4wb0k")
 unique_name_in_owner = true
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Fade" unique_id=907723027]
 process_mode = 3
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -363.0
-offset_top = -106.0
-offset_right = 1077.0
-offset_bottom = 704.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("GradientTexture2D_a40uy")

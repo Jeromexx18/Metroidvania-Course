@@ -1,7 +1,8 @@
 @icon("res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/METROIDVAINIA/ch_01_player_foundations/ch_01_player_foundations/state.svg")
 class_name PlayerAttack extends PlayerState
 
-const AUDIO_ATTACK = preload("uid://g2h56xr6x5e0")
+#const AUDIO_ATTACK = preload("uid://g2h56xr6x5e0")
+const AUDIO_ATTACK = preload("uid://gg38px7mokm4")
 
 @onready var attack_sprite_2d: Sprite2D = %AttackSprite2D
 

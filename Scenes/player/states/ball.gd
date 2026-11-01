@@ -32,7 +32,8 @@ func enter()->void:
 	
 	player.collision_stand.position.y =-13
 	player.da_stand.position.y =-13
-	player.da_stand.disabled=true
+	player.da_stand.disabled=false
+	player.da_crouch.disabled=true
 	
 	
 	player.velocity.y -=100
@@ -52,7 +53,7 @@ func exit()->void:
 	
 	player.collision_stand.position.y =-26
 	player.da_stand.position.y =0
-	player.da_stand.disabled=false
+	player.da_stand.disabled=true
 	Audio.play_spatial_sound(MORPH_OUT, player.global_position , false, true, 0.5)
 	
 	

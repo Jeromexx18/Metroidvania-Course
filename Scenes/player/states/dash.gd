@@ -8,6 +8,7 @@ const DASH_AUDIO = preload("uid://btat8ekvgwlw2")
 @onready var damage_area: DamageArea = %DamageArea
 @export var speed: float =300.0
 
+var can_turn:bool= true
 
 
 var dir : float =1.0
@@ -34,6 +35,7 @@ func enter()->void:
 	player.dash_count = -1
 	
 	player.sprite.tween_color( duration )
+	turn()
 	pass
 
 func exit()->void:
@@ -66,6 +68,7 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(_delta: float)->PlayerState:
 	player.velocity.x = (speed  * (time/duration) + speed) * dir
+	
 	return next_state
 	
 	
@@ -73,4 +76,10 @@ func get_dash_direction() ->void:
 	dir = 1.0
 	if player.sprite.flip_h == true:
 		dir = -1.0
+	pass
+	
+	
+func turn()->void:
+	if can_turn == false:
+		player.sprite.flip.h=false
 	pass

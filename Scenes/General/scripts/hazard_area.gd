@@ -1,4 +1,4 @@
-@icon("res://Platformer/icons/hazard_area.svg")
+@icon( "res://Metroidvania Course/icons/hazard_area.svg" )
 class_name HazardArea
 extends AttackArea
 

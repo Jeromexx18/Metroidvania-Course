@@ -10,9 +10,12 @@ class_name PauseMenu extends CanvasLayer
 
 
 
-@onready var music_slider: HSlider = %MusicSlider
+#@onready var music_slider: HSlider = %MusicSlider
+#@onready var sfx_slider: HSlider = %SFXSlider
+#@onready var ui_slider: HSlider = %UISlider
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var ui_slider: HSlider = %UISlider
+@onready var music_slider: HSlider = %MusicSlider
 
 
 

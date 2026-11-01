@@ -13,6 +13,7 @@ func init()->void:
 func enter()->void:
 	#play animations here
 	player.animation_player.play("idle")
+	player.collision_crouch.disabled=true
 	player.jump_count = 0 
 	player.dash_count = 0 
 	

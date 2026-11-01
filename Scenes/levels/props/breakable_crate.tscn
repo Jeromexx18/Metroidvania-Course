@@ -7,6 +7,17 @@
 [ext_resource type="Resource" uid="uid://dny0jusem76gw" path="res://Metroidvania Course/00_global/Visual Effects/hit_particle_settings/hit_wood_small.tres" id="5_25mnb"]
 [ext_resource type="Script" uid="uid://hvr30iaccx8y" path="res://Metroidvania Course/Scenes/General/scripts/damage_area.gd" id="6_w8vwn"]
 [ext_resource type="Texture2D" uid="uid://b2fmldb6ik11b" path="res://Metroidvania Course/Scenes/player/sprites/props_destructible.png" id="7_a4nki"]
+[ext_resource type="Script" uid="uid://bx4r3wypye5jh" path="res://Metroidvania Course/Scenes/General/scripts/loot_dropper.gd" id="8_2bh7x"]
+[ext_resource type="Script" uid="uid://brrrvnawb4p2k" path="res://Metroidvania Course/Scenes/General/scripts/loot_data.gd" id="9_2845w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxk3e"]
+atlas = ExtResource("7_a4nki")
+region = Rect2(120, 12, 4, 4)
+
+[sub_resource type="Resource" id="Resource_2bh7x"]
+script = ExtResource("2_mole6")
+texture = SubResource("AtlasTexture_uxk3e")
+metadata/_custom_type_script = "uid://b8puhmb846r64"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap70j"]
 size = Vector2(32.5, 25.5)
@@ -18,9 +29,15 @@ region = Rect2(53, 28, 39, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf74u"]
 size = Vector2(35, 32)
 
+[sub_resource type="Resource" id="Resource_rloyw"]
+script = ExtResource("9_2845w")
+item = "uid://nt5helj1o3t1"
+drop_chance = 100.0
+metadata/_custom_type_script = "uid://brrrvnawb4p2k"
+
 [node name="BreakableCrate" type="Node2D" unique_id=268893948]
 script = ExtResource("1_xf74u")
-hit_particles = Array[ExtResource("2_mole6")]([ExtResource("3_yiqry"), ExtResource("5_25mnb"), ExtResource("4_3k3cn")])
+hit_particles = Array[ExtResource("2_mole6")]([ExtResource("3_yiqry"), ExtResource("5_25mnb"), SubResource("Resource_2bh7x")])
 destroy_particles = Array[ExtResource("2_mole6")]([ExtResource("3_yiqry"), ExtResource("5_25mnb"), ExtResource("4_3k3cn")])
 metadata/_custom_type_script = "uid://cnu3xiyx406rc"
 
@@ -41,7 +58,13 @@ texture = SubResource("AtlasTexture_c5rby")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391502140]
 position = Vector2(-61, 0)
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1383327090]
 position = Vector2(61, 2)
 shape = SubResource("RectangleShape2D_xf74u")
+
+[node name="LootDropper" type="Marker2D" parent="." unique_id=1649036366]
+script = ExtResource("8_2bh7x")
+items = Array[ExtResource("9_2845w")]([SubResource("Resource_rloyw")])
+metadata/_custom_type_script = "uid://bx4r3wypye5jh"

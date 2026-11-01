@@ -153,8 +153,8 @@ offset_bottom = 334.0
 
 [node name="MapNode" parent="PauseScreen/map" unique_id=1523718006 instance=ExtResource("2_mdl52")]
 layout_mode = 1
-offset_right = 39.0
-offset_bottom = 10.0
+offset_right = 38.0
+offset_bottom = 9.0
 linked_scene = "uid://4de5u0v72m5y"
 entrances_left = Array[float]([2.0])
 
@@ -271,7 +271,6 @@ stretch_mode = 3
 
 [node name="System" type="Control" parent="." unique_id=1391481942]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

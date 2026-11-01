@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://nt5helj1o3t1"]
+
+[ext_resource type="Script" uid="uid://b8x2v3p3f5mfw" path="res://Metroidvania Course/Scenes/General/health_pick_up/health_pickup.gd" id="1_7rg4f"]
+[ext_resource type="Texture2D" uid="uid://b8tc72jx128pd" path="res://Metroidvania Course/Scenes/General/health_pick_up/heart.png" id="2_egxd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgqb8"]
+radius = 8.062258
+
+[sub_resource type="Animation" id="Animation_ags46"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ah4ed"]
+resource_name = "heart"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afd2g"]
+_data = {
+&"RESET": SubResource("Animation_ags46"),
+&"heart": SubResource("Animation_ah4ed")
+}
+
+[node name="HealthPickup" type="CharacterBody2D" unique_id=1482497938]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_7rg4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493925879]
+shape = SubResource("CircleShape2D_bgqb8")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935414185]
+texture = ExtResource("2_egxd3")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1024314627]
+libraries/ = SubResource("AnimationLibrary_afd2g")
+autoplay = &"heart"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1109055512]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=885372125]
+shape = SubResource("CircleShape2D_bgqb8")
+debug_color = Color(0, 0.6, 0.69803923, 0.101960786)

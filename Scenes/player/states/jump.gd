@@ -2,7 +2,7 @@
 class_name PlayerStateJump extends PlayerState
  
 
-@export var jump_velocity:float=500
+@export var jump_velocity:float=100
 
 
 const JUMP_AUDIO = preload("uid://cu4climppj65")

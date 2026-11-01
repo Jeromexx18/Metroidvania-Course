@@ -22,7 +22,7 @@ func _ready() -> void:
 	set_collision_mask_value( 1,false )
 	set_collision_layer_value( 1,false )
 	if owner is Enemy:
-		enemy= owner
+		enemy = owner
 		set_collision_mask_value( 5, true )
 		if use_audio_sensor:
 			Audio.player_made_sound.connect( _on_player_sound )
@@ -33,11 +33,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if timer>0 and not can_see_player :
+	if timer > 0 and not can_see_player :
 		timer -= delta
-		if timer<0:
+		if timer <= 0:
 			player_exited.emit()
-			enemy.black_board.target= null
+			enemy.blackboard.target = null
 			
 	pass
 
@@ -49,9 +49,11 @@ func _process(_delta : float) -> void:
 	pass
 
 func _on_body_entered( n:Node2D ) ->void:
+	if not n is Player:
+		return
 	player_entered.emit()
 	can_see_player = true
-	enemy.black_board.target = n
+	enemy.blackboard.target = n
 	timer = 0
 	pass
 	
@@ -76,9 +78,10 @@ func _on_player_sound(pos : Vector2, volume : float)->void:
 	var sound_dist : float = global_position.distance_to( pos )
 	var sound_ratio : float = clampf( 1 - sound_dist/ audio_detect_dist, 0.0, 1.0 ) * 2
 	var perceived_vol : float = volume * sound_ratio
+	
 	print( sound_ratio, "| ", perceived_vol )
 	if perceived_vol >= min_audio_sense:
 		#print("I hear youuuu poser!!!!")
 		timer = search_duration
-		enemy.black_board.target = get_tree().get_first_node_in_group("Player")
+		enemy.blackboard.target = get_tree().get_first_node_in_group("Player")
 	pass

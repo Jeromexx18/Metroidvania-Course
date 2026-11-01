@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gg38px7mokm4"
+path="res://.godot/imported/Sword Perc @thecxdy.wav-ef1adbcb20377f613f8138d4935f5453.sample"
+
+[deps]
+
+source_file="res://Metroidvania Course/music/SFK/Sword Perc @thecxdy.wav"
+dest_files=["res://.godot/imported/Sword Perc @thecxdy.wav-ef1adbcb20377f613f8138d4935f5453.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

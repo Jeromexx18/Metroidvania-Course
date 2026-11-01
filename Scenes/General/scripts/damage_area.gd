@@ -1,4 +1,4 @@
-@icon("res://Platformer/icons/damage_area.svg")
+@icon("res://Metroidvania Course/icons/damage_area.svg" )
 class_name DamageArea extends Area2D
 
 signal damage_taken( attack_area )

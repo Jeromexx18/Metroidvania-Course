@@ -1,4 +1,4 @@
-@icon("res://Platformer/icons/attack_area.svg")
+@icon("res://METROIDVAINIA GAMERESOURCE/Metroidvania_Assets/METROIDVAINIA/ch_04_player_abilities/ch_04_player_abilities/icons/attack_area.svg")
 class_name AttackArea  extends Area2D
 
 @export var damage : float = 1
@@ -26,6 +26,8 @@ func _on_body_entered( body : Node2D )->void:
 		pass
 	pass
 	
+	
+
 func activate ( duration: float =0.1) -> void:
 	set_active()
 	await get_tree().create_timer( duration ).timeout

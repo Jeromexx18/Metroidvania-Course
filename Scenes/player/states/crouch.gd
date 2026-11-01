@@ -15,15 +15,15 @@ func init()->void:
 func enter()->void:
 	
 	#play animations here
-	player.collision_stand.disabled=true
 	player.collision_crouch.disabled=false
+	player.collision_stand.disabled=false
 	player.animation_player.play("crouch")
 	player.da_stand.disabled=true
 	player.da_crouch.disabled=false
 	
 	
 	can_stand_up=true
-	
+
 	pass
 
 func exit()->void:
